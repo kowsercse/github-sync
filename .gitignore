@@ -20,10 +20,8 @@ local.properties
 .settings/
 .project
 .loadpath
-
-# Locally stored "Eclipse launch configurations"
 *.launch
-
+.buildpath
 
 # ------------ Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode
 .idea/
