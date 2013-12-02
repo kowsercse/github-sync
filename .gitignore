@@ -1,0 +1,56 @@
+# ------------ maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+
+# ------------ SublimeText
+*.sublime-workspace
+*.sublime-project
+
+# ------------ eclipse
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.project
+.loadpath
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# TeXlipse plugin
+.texlipse
+
+# ------------ Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode
+.idea/
+*.ipr
+*.iws
+*.iml
+out/
+.idea_modules/
+
+*.class
+
+# ------------ java
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
