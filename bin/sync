@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+home=/media/tools/code/eclipse/github-sync
+. $home/conf/githubsync.conf
+. $home/conf/credentials.conf
+
+function git_sync() {
+	local repository=$1 
+	local repo_name=$(basename $repository)
+	cd $repository
+
+	if [ ! -d .git ]
+	then
+		git init
+		git remote add origin git@github.com:$USERNAME/$repo_name.git
+	fi
+
+	local time=$(date --utc);
+	git add --all
+	git commit -m "auto sync $time"
+}
+
+function create_json() {
+	echo "{\"name\": \"$1\", \"homepage\": \"http://kowsercse.com\", \"has_downloads\": \"true\"}" > /tmp/gitsync
+}
+
+function github_sync() {
+	local repository=$1 
+	local repo_name=$(basename $repository)
+	cd $repository
+	
+	local status=$(curl -u $USERNAME:$TOKEN -s -o /dev/null -I -X HEAD -w "%{http_code}" $GITHUB/repos/$USERNAME/$repo_name)
+	if [ $status -eq 404 ]
+	then
+		local json=$(create_json $repo_name)
+		echo "creating repository for: $repo_name"
+		curl -u $USERNAME:$TOKEN -H "Content-Type: application/json" -X POST $GITHUB/user/repos -d @/tmp/gitsync
+	fi
+	git push -u origin master
+}
+
+for repo in $(less $home/conf/repos)
+do
+	echo $repo
+	git_sync $repo
+	github_sync $repo
+done

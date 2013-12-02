@@ -10,10 +10,7 @@ release.properties
 *.sublime-project
 
 # ------------ eclipse
-*.pydevproject
 .metadata
-.gradle
-bin/
 tmp/
 *.tmp
 *.bak
@@ -27,14 +24,6 @@ local.properties
 # Locally stored "Eclipse launch configurations"
 *.launch
 
-# CDT-specific
-.cproject
-
-# PDT-specific
-.buildpath
-
-# TeXlipse plugin
-.texlipse
 
 # ------------ Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode
 .idea/
@@ -43,13 +32,9 @@ local.properties
 *.iml
 out/
 .idea_modules/
-
 *.class
 
 # ------------ java
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
 # Package Files #
 *.jar
 *.war
